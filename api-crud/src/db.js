@@ -12,7 +12,6 @@ export const pool = new Pool({
   },
 });
 
-// 👇 AGREGA ESTO
 pool.connect()
   .then(() => console.log("BD conectada"))
   .catch(err => console.error("Error BD:", err));
