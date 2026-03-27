@@ -1,13 +1,13 @@
 import { pool } from "../db.js";
 
-// GET TODOS
 export const getPlantas = async (req, res) => {
   try {
-    const result = await pool.query("SELECT * FROM plantas");
-    res.json(result.rows);
+    const result = await pool.query("SELECT * FROM plantas ORDER BY id ASC");
+  
+    res.json(result.rows); 
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: "error en servidor" });
+    console.error("Error en el query:", error);
+    res.status(500).json([]); 
   }
 };
 
